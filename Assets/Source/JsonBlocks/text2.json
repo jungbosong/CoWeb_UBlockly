@@ -1,0 +1,35 @@
+[
+  {
+    "type": "text2_h1",
+    "message0": "h1 %1 /h1 %2",
+    "args0": [
+      {
+        "type": "field_input",
+        "name": "TEXT",
+        "text": ""
+      },
+      {
+        "type": "input_value",
+        "name": "TEXT"
+      }
+    ],
+    "output": "String"
+  },
+  {
+    "type": "text2_text",
+    "message0": "\" %1 \" %2",
+    "args0": [
+      {
+        "type": "field_input",
+        "name": "TEXT",
+        "text": ""
+      },
+      {
+        "type": "input_value",
+        "name": "TEXT"
+      }
+    ],
+    "output": "String",
+    "extensions": ["text_quotes", "parent_tooltip_when_inline"]
+  }
+]
