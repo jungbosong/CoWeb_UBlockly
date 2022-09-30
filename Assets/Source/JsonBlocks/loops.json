@@ -2,18 +2,22 @@
   {
     "type": "controls_repeat",
     "message0": "%{BKY_CONTROLS_REPEAT_TITLE}",
-    "args0": [{
-      "type": "field_number",
-      "name": "TIMES",
-      "value": 10,
-      "min": 0,
-      "precision": 1
-    }],
+    "args0": [
+      {
+        "type": "field_number",
+        "name": "TIMES",
+        "value": 10,
+        "min": 0,
+        "precision": 1
+      }
+    ],
     "message1": "%{BKY_CONTROLS_REPEAT_INPUT_DO} %1",
-    "args1": [{
-      "type": "input_statement",
-      "name": "DO"
-    }],
+    "args1": [
+      {
+        "type": "input_statement",
+        "name": "DO"
+      }
+    ],
     "previousStatement": null,
     "nextStatement": null,
     "colour": "%{BKY_LOOPS_HUE}",
@@ -40,10 +44,12 @@
       }
     ],
     "message1": "%{BKY_CONTROLS_REPEAT_INPUT_DO} %1",
-    "args1": [{
-      "type": "input_statement",
-      "name": "DO"
-    }],
+    "args1": [
+      {
+        "type": "input_statement",
+        "name": "DO"
+      }
+    ],
     "previousStatement": null,
     "nextStatement": null,
     "colour": "%{BKY_LOOPS_HUE}",
@@ -77,19 +83,18 @@
       }
     ],
     "message1": "%{BKY_CONTROLS_REPEAT_INPUT_DO} %1",
-    "args1": [{
-      "type": "input_statement",
-      "name": "DO"
-    }],
+    "args1": [
+      {
+        "type": "input_statement",
+        "name": "DO"
+      }
+    ],
     "inputsInline": true,
     "previousStatement": null,
     "nextStatement": null,
     "colour": "%{BKY_LOOPS_HUE}",
     "helpUrl": "%{BKY_CONTROLS_FOR_HELPURL}",
-    "extensions": [
-      "contextMenu_newGetVariableBlock",
-      "controls_for_tooltip"
-    ]
+    "extensions": ["contextMenu_newGetVariableBlock", "controls_for_tooltip"]
   },
 
   {
@@ -108,10 +113,12 @@
       }
     ],
     "message1": "%{BKY_CONTROLS_REPEAT_INPUT_DO} %1",
-    "args1": [{
-      "type": "input_statement",
-      "name": "DO"
-    }],
+    "args1": [
+      {
+        "type": "input_statement",
+        "name": "DO"
+      }
+    ],
     "previousStatement": null,
     "nextStatement": null,
     "colour": "%{BKY_LOOPS_HUE}",
@@ -119,26 +126,6 @@
     "extensions": [
       "contextMenu_newGetVariableBlock",
       "controls_forEach_tooltip"
-    ]
-  },
-
-  {
-    "type": "controls_flow_statements",
-    "message0": "%1",
-    "args0": [{
-      "type": "field_dropdown",
-      "name": "FLOW",
-      "options": [
-        ["%{BKY_CONTROLS_FLOW_STATEMENTS_OPERATOR_BREAK}", "BREAK"],
-        ["%{BKY_CONTROLS_FLOW_STATEMENTS_OPERATOR_CONTINUE}", "CONTINUE"]
-      ]
-    }],
-    "previousStatement": null,
-    "colour": "%{BKY_LOOPS_HUE}",
-    "helpUrl": "%{BKY_CONTROLS_FLOW_STATEMENTS_HELPURL}",
-    "extensions": [
-      "controls_flow_tooltip",
-      "controls_flow_in_loop_check"
     ]
   }
 ]

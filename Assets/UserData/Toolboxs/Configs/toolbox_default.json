@@ -50,6 +50,11 @@
       "CategoryName": "TEXT2",
       "ColorHex": "#f6546a",
       "BlockTypePrefix": "text2"
+    },
+    {
+      "CategoryName": "SPACE",
+      "ColorHex": "#ff8b42",
+      "BlockTypePrefix": "space"
     }
   ]
 }

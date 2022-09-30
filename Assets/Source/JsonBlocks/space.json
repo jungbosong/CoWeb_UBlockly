@@ -1,0 +1,27 @@
+[
+  {
+    "type": "space_html",
+    "message0": "html %1 %2 </html>",
+    "args0": [
+      {
+        "type": "field_label",
+        "name": "NAME"
+      },
+      {
+        "type": "field_label",
+        "name": "PARAMS"
+      }
+    ],
+    "mutator": "procedures_defnoreturn_mutator"
+  },
+  {
+    "type": "space",
+    "message0": "column",
+    "colour": "%{BKY_TEXT_HUE}",
+    "helpUrl": "%{BKY_TEXT_JOIN_HELPURL}",
+    "tooltip": "%{BKY_TEXT_JOIN_TOOLTIP}",
+    "mutator": "text_join_mutator",
+    "previousStatement": null,
+    "nextStatement": null
+  }
+]

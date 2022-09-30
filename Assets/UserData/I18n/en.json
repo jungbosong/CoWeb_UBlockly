@@ -1,6 +1,7 @@
 {
   // 실제로 사용할 카테고리
   "TEXT2": "글자",
+  "SPACE": "공간",
   // 기존에 있던 예시 카테고리 (배포 시 삭제 예정)
   "TEXT": "Text",
   "VARIABLE": "Variables",

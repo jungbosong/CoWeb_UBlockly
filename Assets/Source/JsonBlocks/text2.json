@@ -1,7 +1,7 @@
 [
   {
     "type": "text2_h1",
-    "message0": "h1 %1 /h1 %2",
+    "message0": "<h1> %1 </h1> %2",
     "args0": [
       {
         "type": "field_input",
@@ -10,7 +10,8 @@
       },
       {
         "type": "input_value",
-        "name": "TEXT"
+        "name": "VALUE",
+        "text": ""
       }
     ],
     "output": "String"
@@ -31,5 +32,52 @@
     ],
     "output": "String",
     "extensions": ["text_quotes", "parent_tooltip_when_inline"]
+  },
+  {
+    "type": "text2_b",
+    "message0": "<b> %1 </b> %2",
+    "args0": [
+      {
+        "type": "field_input",
+        "name": "TEXT",
+        "text": ""
+      },
+      {
+        "type": "input_value",
+        "name": "TEXT"
+      }
+    ],
+    "output": "String"
+  },
+  {
+    "type": "text2_br",
+    "message0": "<br> %1",
+    "args0": [
+      {
+        "type": "input_value",
+        "name": "VALUE"
+      }
+    ],
+    "output": "Number"
+  },
+  {
+    "type": "text2_a",
+    "message0": "<a href=\"%1\"> %2 </a> %3",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "%{BKY_TEXT_APPEND_VARIABLE}"
+      },
+      {
+        "type": "field_input",
+        "name": "TEXT"
+      },
+      {
+        "type": "input_value",
+        "name": "VALUE"
+      }
+    ],
+    "output": "String"
   }
 ]
