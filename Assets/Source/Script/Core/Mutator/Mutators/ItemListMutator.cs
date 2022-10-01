@@ -22,13 +22,13 @@ using System.Collections.Generic;
 
 namespace UBlockly
 {
-    [MutatorClass(MutatorId = "text_join_mutator;lists_create_with_item_mutator")]
+    [MutatorClass(MutatorId = "text_join_mutator;lists_create_with_item_mutator;space_mutator")]
     public class ItemListMutator : Mutator
     {
         private const string EMPTY_NAME = "EMPTY";
         private const string ADD_INPUT_PREFIX = "ADD";
         
-        private int mItemCount = 2;
+        private int mItemCount = 1;
         public int ItemCount { get { return mItemCount; } }
 
         private string mLabelText;

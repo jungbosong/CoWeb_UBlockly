@@ -34,6 +34,7 @@ namespace UBlockly.UGUI
 
         protected override void OnInit()
         {
+            m_ItemCountSlider.minValue = 1;
             m_ItemCountSlider.value = mItemListMutator.ItemCount;
             m_ItemCountText.text = mItemListMutator.ItemCount.ToString();
 
