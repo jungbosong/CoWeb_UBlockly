@@ -20,7 +20,7 @@
     "colour": "%{BKY_TEXT_HUE}",
     "helpUrl": "%{BKY_TEXT_JOIN_HELPURL}",
     "tooltip": "%{BKY_TEXT_JOIN_TOOLTIP}",
-    "mutator": "text_join_mutator",
+    "mutator": "space_mutator",
     "previousStatement": null,
     "nextStatement": null
   }

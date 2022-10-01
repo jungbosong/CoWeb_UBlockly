@@ -37,6 +37,7 @@ namespace UBlockly.UGUI
 
         protected override void OnInit()
         {
+            m_ElseIfCountSlider.minValue = 1;
             m_ElseIfCountSlider.value = mIfElseMutator.ElseIfCount;
             m_ElseIfCountText.text = mIfElseMutator.ElseIfCount.ToString();
             m_HasElseToggle.isOn = mIfElseMutator.HasElse;
