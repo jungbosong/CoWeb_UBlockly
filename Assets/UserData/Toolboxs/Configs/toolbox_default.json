@@ -2,6 +2,21 @@
   "Style": "classic",
   "BlockCategoryList": [
     {
+      "CategoryName": "SPACE",
+      "ColorHex": "#ff8b42",
+      "BlockTypePrefix": "space"
+    },
+    {
+      "CategoryName": "TEXT2",
+      "ColorHex": "#f6546a",
+      "BlockTypePrefix": "text2"
+    },
+    {
+      "CategoryName": "IMAGEFORM",
+      "ColorHex": "#4668a5",
+      "BlockTypePrefix": "imageForm"
+    },
+    {
       "CategoryName": "VARIABLE",
       "ColorHex": "#8a9fc6",
       "BlockTypePrefix": "variables"
@@ -45,16 +60,6 @@
       "CategoryName": "COLOR",
       "ColorHex": "#b42695",
       "BlockTypePrefix": "colour"
-    },
-    {
-      "CategoryName": "TEXT2",
-      "ColorHex": "#f6546a",
-      "BlockTypePrefix": "text2"
-    },
-    {
-      "CategoryName": "SPACE",
-      "ColorHex": "#ff8b42",
-      "BlockTypePrefix": "space"
     }
   ]
 }

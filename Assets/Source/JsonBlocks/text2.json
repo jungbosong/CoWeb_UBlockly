@@ -1,22 +1,5 @@
 [
   {
-    "type": "text2_h1",
-    "message0": "<h1> %1 </h1> %2",
-    "args0": [
-      {
-        "type": "field_input",
-        "name": "TEXT",
-        "text": ""
-      },
-      {
-        "type": "input_value",
-        "name": "VALUE",
-        "text": ""
-      }
-    ],
-    "output": "String"
-  },
-  {
     "type": "text2_text",
     "message0": "\" %1 \" %2",
     "args0": [
@@ -32,6 +15,18 @@
     ],
     "output": "String",
     "extensions": ["text_quotes", "parent_tooltip_when_inline"]
+  },
+  {
+    "type": "text2_h1",
+    "message0": "<h1> %1 </h1>",
+    "args0": [
+      {
+        "type": "field_input",
+        "name": "TEXT",
+        "text": ""
+      }
+    ],
+    "output": "String"
   },
   {
     "type": "text2_b",
@@ -65,9 +60,15 @@
     "message0": "<a href=\"%1\"> %2 </a> %3",
     "args0": [
       {
-        "type": "field_variable",
-        "name": "VAR",
-        "variable": "%{BKY_TEXT_APPEND_VARIABLE}"
+        "type": "field_dropdown",
+        "name": "PROPERTY",
+        "options": [
+          ["www.coweb1.com", "COWEB1"],
+          ["www.coweb2.com", "COWEB2"],
+          ["www.coweb3.com", "COWEB3"],
+          ["www.coweb4.com", "COWEB4"],
+          ["www.coweb5.com", "COWEB5"]
+        ]
       },
       {
         "type": "field_input",

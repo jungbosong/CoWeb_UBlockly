@@ -1,0 +1,105 @@
+[
+  {
+    "type": "imageForm_img",
+    "message0": "<img src=\"%1\"> %2",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "PROPERTY",
+        "options": [
+          ["image1.png", "IMAGE1"],
+          ["image2.png", "IMAGE2"],
+          ["image3.png", "IMAGE3"],
+          ["image4.png", "IMAGE4"],
+          ["image5.png", "IMAGE5"]
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "VALUE"
+      }
+    ],
+    "output": "String"
+  },
+  {
+    "type": "imageForm_form",
+    "message0": "<form>",
+    "args0": [
+      {
+        "type": "input_value",
+        "name": "IF0",
+        "check": "Boolean",
+        "align": "LEFT"
+      }
+    ],
+    "message1": "ㅤ %1",
+    "args1": [
+      {
+        "type": "input_statement",
+        "name": "DO0",
+        "align": "RIGHT"
+      }
+    ],
+    "message2": "</form>",
+    "args2": [
+      {
+        "type": "input_value",
+        "name": "RETURN",
+        "align": "RIGHT"
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "%{BKY_LOGIC_HUE}",
+    "tooltip": "%{BKYCONTROLS_IF_TOOLTIP_2}",
+    "helpUrl": "%{BKY_CONTROLS_IF_HELPURL}",
+    "extensions": ["controls_if_tooltip"]
+  },
+  {
+    "type": "imageForm_label",
+    "message0": "<label> %1 %2 </label>",
+    "args0": [
+      {
+        "type": "field_input",
+        "name": "TEXT"
+      },
+      {
+        "type": "input_value",
+        "name": "VALUE"
+      }
+    ],
+    "output": "String"
+  },
+  {
+    "type": "imageForm_input",
+    "message0": "<input> type=\"%1\" placeholder=\"%2\" <br>",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "PROPERTY",
+        "options": [
+          ["text", "TEXT"],
+          ["password", "PASSWORD"]
+        ]
+      },
+      {
+        "type": "field_input",
+        "name": "TEXT"
+      }
+    ],
+    "output": "Boolean"
+  },
+  {
+    "type": "imageForm_button",
+    "message0": "<button> %1 </button>",
+    "args0": [
+      {
+        "type": "field_input",
+        "name": "TEXT",
+        "text": ""
+      }
+    ],
+    "output": "String",
+    "extensions": ["text_quotes", "parent_tooltip_when_inline"]
+  }
+]
