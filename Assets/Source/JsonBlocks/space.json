@@ -1,41 +1,30 @@
 [
   {
     "type": "space_html",
-    "message0": "<html>",
+    "message0": "<html> %1",
     "args0": [
       {
         "type": "input_value",
-        "name": "space_html",
-        "check": "Boolean",
-        "align": "LEFT"
-      }
-    ],
-    "message1": "ㅤ %1",
-    "args1": [
-      {
-        "type": "input_statement",
-        "name": "DO0",
-        "align": "RIGHT"
-      }
-    ],
-    "message2": "</html>",
-    "args2": [
-      {
-        "type": "input_value",
-        "name": "RETURN",
+        "name": "HTML",
         "align": "RIGHT"
       }
     ],
     "colour": "%{BKY_LOGIC_HUE}",
     "tooltip": "%{BKYCONTROLS_IF_TOOLTIP_2}",
-    "helpUrl": "%{BKY_CONTROLS_IF_HELPURL}",
-    "extensions": ["controls_if_tooltip"]
+    "helpUrl": "%{BKY_CONTROLS_IF_HELPURL}"
   },
   {
     "type": "space",
     "message0": "column",
-    "previousStatement": null,
+    "args0":[
+      {
+        "type": "input_statement",
+        "name":"COLUMN0",
+        "align":"RIGHT"
+      }
+    ],
     "nextStatement": null,
+    "output": "String",
     "colour": "%{BKY_TEXT_HUE}",
     "helpUrl": "%{BKY_TEXT_JOIN_HELPURL}",
     "tooltip": "%{BKY_TEXT_JOIN_TOOLTIP}",
