@@ -4,16 +4,33 @@ using UnityEngine;
 
 public class WebView : MonoBehaviour
 {
-    [HideInInspector]
-    public string URL = "https://www.naver.com";
     private WebViewObject webViewObject;
-
-    void Start()
-    {
-        StartWebView();
+    // 싱글톤
+    private static WebView instance = null;
+    void Awake() 
+    { 
+        if(instance == null) {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        } else {
+            if(instance != this) {
+                Destroy(this.gameObject);
+            }
+        }
     }
 
-    // Update is called once per frame
+    public static WebView Instance
+    {
+        get
+        {
+            if(null == instance)
+            {
+                return null;
+            }
+            return instance;
+        }
+    }
+
     void Update()
     {
         if (Application.platform == RuntimePlatform.Android) {
@@ -26,31 +43,23 @@ public class WebView : MonoBehaviour
         }
     }
 
-    public void Show(string url)
+    public void Show()
     {
-        //gameObject.Show();
-
-        URL = url;
         StartWebView();
     }
 
     public void Hide()
     {
         // 뒤 로 가 기, esc 버 튼 
-        URL = string.Empty;
-
         if (webViewObject != null)
         {
             Destroy(webViewObject);
         }
-
-        //gameObject.Hide();
     }
     public void StartWebView()
     {
-
-        string strUrl = URL;  
-
+        Debug.Log("called StartWebView");
+        string URL = Application.persistentDataPath + "/index.htm";
         try
         {
             webViewObject = (new GameObject("WebViewObject")).AddComponent<WebViewObject>();
@@ -59,7 +68,7 @@ public class WebView : MonoBehaviour
                 Debug.Log(string.Format("CallFromJS[{0}]", msg));
             });
 
-            webViewObject.LoadURL(strUrl);
+            webViewObject.LoadURL(URL);
             webViewObject.SetVisibility(true);
             webViewObject.SetMargins((int)(Screen.width * 0.7), 0, 0, 0);
         }
