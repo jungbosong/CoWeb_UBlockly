@@ -50,7 +50,7 @@
     "args0": [
       {
         "type": "input_value",
-        "name": "VALUE"
+        "name": "TEXT"
       }
     ],
     "output": "Number"
@@ -72,11 +72,11 @@
       },
       {
         "type": "field_input",
-        "name": "TEXT"
+        "name": "VALUE"
       },
       {
         "type": "input_value",
-        "name": "VALUE"
+        "name": "TEXT"
       }
     ],
     "output": "String"
