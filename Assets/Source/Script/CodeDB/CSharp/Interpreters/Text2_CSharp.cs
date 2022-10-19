@@ -11,7 +11,7 @@ namespace UBlockly
         protected override IEnumerator Execute(Block block)
         {
             string value = block.GetFieldValue("TEXT");
-            HtmlCodeMaker.Instance.AddCode("NTAG", "", "", value);
+            HtmlCodeMaker.Instance.AddCode("", "", value);
             HtmlCodeMaker.Instance.ShowCode();
             CmdEnumerator ctor = CSharp.Interpreter.ValueReturn(block, "TEXT");
             yield return ctor;          
@@ -24,7 +24,7 @@ namespace UBlockly
         protected override IEnumerator Execute(Block block)
         {   
             string value = block.GetFieldValue("TEXT");
-            HtmlCodeMaker.Instance.AddCode("CTAG", "<h1>", "</h1>", value);
+            HtmlCodeMaker.Instance.AddCode("<h1>", "</h1>", value);
             HtmlCodeMaker.Instance.ShowCode();
             CmdEnumerator ctor = CSharp.Interpreter.ValueReturn(block, "TEXT");
             yield return ctor;            
@@ -37,11 +37,10 @@ namespace UBlockly
         protected override IEnumerator Execute(Block block)
         {   
             string value = block.GetFieldValue("TEXT");
-            HtmlCodeMaker.Instance.AddCode("CTAG", "<b >", "</b >", value);
+            HtmlCodeMaker.Instance.AddCode("<b >", "</b >", value);
             HtmlCodeMaker.Instance.ShowCode();
             CmdEnumerator ctor = CSharp.Interpreter.ValueReturn(block, "TEXT");
             yield return ctor;                     
-            HtmlCodeMaker.Instance.AddCode("NTAG", "", "", "");
         }
     }
     // br
@@ -51,7 +50,7 @@ namespace UBlockly
         protected override IEnumerator Execute(Block block)
         {
             string value = block.GetFieldValue("VALUE");
-            HtmlCodeMaker.Instance.AddCode("TAG", "<br>", "", "");
+            HtmlCodeMaker.Instance.AddCode("<br>", "", "");
             HtmlCodeMaker.Instance.ShowCode();
             CmdEnumerator ctor = CSharp.Interpreter.ValueReturn(block, "TEXT");
             yield return ctor;          
@@ -102,7 +101,7 @@ namespace UBlockly
             strBuilder.Append(value);
             strBuilder.Append("</a>");
             UnityEngine.Debug.Log("text2_a_result: " + strBuilder.ToString());
-            HtmlCodeMaker.Instance.AddCode("NTAG", "", "", strBuilder.ToString());
+            HtmlCodeMaker.Instance.AddCode("", "", strBuilder.ToString());
             HtmlCodeMaker.Instance.ShowCode();
             CmdEnumerator ctor = CSharp.Interpreter.ValueReturn(block, "TEXT");
             yield return ctor;

@@ -21,44 +21,24 @@ public class HtmlCodeMaker : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+    }
+    public void InitHtmlCode()
+    {
+        strBuilder.Clear();
         strBuilder.Append("<html>");
     }
 
-    public void AddHtmlCode()
-    {
-        strBuilder.Append("</html>");
-    }
-
-    public void AddCode(string typeName, string openTag, string closeTag, string data)
+    public void AddCode(string openTag, string closeTag, string data)
     {
         Debug.Log("AddCode");
-        Debug.Log("typeName: " + typeName);
-        //Debug.Log("tagName: " + tagName);
         Debug.Log("openTag: " + openTag);
         Debug.Log("closeTag: " + closeTag);
         Debug.Log("data: " + data);
 
-        if(typeName == "CTAG")
-        {
-            Debug.Log("Type's CTAG");
-            strBuilder.Append(openTag);
-            strBuilder.Append(data);
-            strBuilder.Append(closeTag);
-            Debug.Log("CTag sb: " + strBuilder.ToString());
+        strBuilder.Append(openTag);
+        strBuilder.Append(data);
+        strBuilder.Append(closeTag);
 
-        }
-        else if(typeName == "TAG")
-        {
-            Debug.Log("Type's TAG");
-            strBuilder.Append(openTag);
-            Debug.Log("Tag sb: " + strBuilder.ToString());
-        }
-        else if(typeName == "NTAG")
-        {
-            Debug.Log("Type's NTAG");
-            strBuilder.Append(data);
-            Debug.Log("NTag sb: " + strBuilder.ToString());
-        }
         Debug.Log("Added code: " + strBuilder.ToString());
     } 
 
