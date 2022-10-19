@@ -29,6 +29,34 @@
     "output": "String"
   },
   {
+    "type": "text2_p",
+    "message0": "<p> %1 </p>",
+    "args0": [
+      {
+        "type": "field_input",
+        "name": "TEXT",
+        "text": ""
+      }
+    ],
+    "output": "String"
+  },
+  {
+    "type": "text2_span",
+    "message0": "<span> %1 </span> %2",
+    "args0": [
+      {
+        "type": "field_input",
+        "name": "TEXT",
+        "text": ""
+      },
+      {
+        "type": "input_value",
+        "name": "TEXT"
+      }
+    ],
+    "output": "String"
+  },
+  {
     "type": "text2_b",
     "message0": "<b> %1 </b> %2",
     "args0": [
@@ -77,6 +105,30 @@
       {
         "type": "input_value",
         "name": "TEXT"
+      }
+    ],
+    "output": "String"
+  },
+  {
+    "type": "text2_ul",
+    "message0": "<ul> %1",
+    "args0": [
+      {
+        "type": "input_value",
+        "name": "VALUE"
+      }
+    ],
+    "nextStatement": null,
+    "output": "String"
+  },
+  {
+    "type": "text2_li",
+    "message0": "<li> %1 </li>",
+    "args0": [
+      {
+        "type": "field_input",
+        "name": "TEXT",
+        "text": ""
       }
     ],
     "output": "String"
