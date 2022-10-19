@@ -11,34 +11,13 @@ namespace UBlockly
     {
         protected override IEnumerator Execute(Block block)
         {
-            CmdEnumerator ctor = CSharp.Interpreter.ValueReturn(block, "HTML", new DataStruct(""));
+            CmdEnumerator ctor = CSharp.Interpreter.ValueReturn(block, "HTML");
             yield return ctor;
-            DataStruct input = ctor.Data; 
-            UnityEngine.Debug.Log("c# print: " + "<html>" + input.ToString() + "</html");
-            MakeHtmlFile(Application.persistentDataPath + "/index.htm", "<html>" + input.ToString() + "</html");
-            WebView.Instance.StartWebView();
-        }
-        public void MakeHtmlFile(string path, string data)
-        {
-            Debug.Log("called MakeHtmlFile");
-            StreamWriter sw;
-            FileStream fs;
-
-            if(!File.Exists(path))
-            {
-                fs = new FileStream(path, FileMode.Create, FileAccess.Write);
-                sw = new StreamWriter(fs);
-                sw.WriteLine(data);
-                sw.Flush();
-                sw.Close();
-                fs.Close();
-
-            }
-            else if(File.Exists(path))
-            {
-                File.Delete(path);
-                MakeHtmlFile(path,data);
-            }
+            HtmlCodeMaker.Instance.AddHtmlCode();
+            UnityEngine.Debug.Log("html code: ");
+            HtmlCodeMaker.Instance.ShowCode();
+            HtmlCodeMaker.Instance.MakeHtmlFile();           
+            //WebView.Instance.StartWebView();
         }
     }
 
@@ -59,6 +38,7 @@ namespace UBlockly
                     CmdEnumerator ctor = CSharp.Interpreter.ValueReturn(block, "ADD" + i, new DataStruct(""));
                     yield return ctor;
                     elements[i] = ctor.Data.StringValue;
+                    UnityEngine.Debug.Log("elements[" + i + "]: " + elements[i]);
                 }
                 result = string.Join("", elements);
             }
