@@ -30,6 +30,32 @@ namespace UBlockly
             yield return ctor;            
         }
     }
+    // p
+    [CodeInterpreter(BlockType = "text2_p")]
+    public class Text2_P_Cmdtor : EnumeratorCmdtor
+    {
+        protected override IEnumerator Execute(Block block)
+        {   
+            string value = block.GetFieldValue("TEXT");
+            HtmlCodeMaker.Instance.AddCode("<p>", "</p>", value);
+            HtmlCodeMaker.Instance.ShowCode();
+            CmdEnumerator ctor = CSharp.Interpreter.ValueReturn(block, "TEXT");
+            yield return ctor;            
+        }
+    }
+    // span
+    [CodeInterpreter(BlockType = "text2_span")]
+    public class Text2_Span_Cmdtor : EnumeratorCmdtor
+    {
+        protected override IEnumerator Execute(Block block)
+        {   
+            string value = block.GetFieldValue("TEXT");
+            HtmlCodeMaker.Instance.AddCode("<span>", "</span>", value);
+            HtmlCodeMaker.Instance.ShowCode();
+            CmdEnumerator ctor = CSharp.Interpreter.ValueReturn(block, "TEXT");
+            yield return ctor;            
+        }
+    }
     // b
     [CodeInterpreter(BlockType = "text2_b")]
     public class Text2_B_Cmdtor : EnumeratorCmdtor
@@ -107,4 +133,31 @@ namespace UBlockly
             yield return ctor;
         }
     }
+    // ul
+    [CodeInterpreter(BlockType = "text2_ul")]
+    public class Text2_Ul_Cmdtor : EnumeratorCmdtor
+    {
+        protected override IEnumerator Execute(Block block)
+        {   
+            HtmlCodeMaker.Instance.AddCode("<ul>", "", "");
+            HtmlCodeMaker.Instance.ShowCode();
+            CmdEnumerator ctor = CSharp.Interpreter.ValueReturn(block, "VALUE");
+            yield return ctor;            
+            HtmlCodeMaker.Instance.AddCode("", "</ul>", "");
+        }
+    }
+     // li
+    [CodeInterpreter(BlockType = "text2_li")]
+    public class Text2_Li_Cmdtor : EnumeratorCmdtor
+    {
+        protected override IEnumerator Execute(Block block)
+        {
+            string value = block.GetFieldValue("TEXT");
+            HtmlCodeMaker.Instance.AddCode("<li>", "</li>", value);
+            HtmlCodeMaker.Instance.ShowCode();
+            CmdEnumerator ctor = CSharp.Interpreter.ValueReturn(block, "TEXT");
+            yield return ctor;          
+        }
+    }
+    
 }
