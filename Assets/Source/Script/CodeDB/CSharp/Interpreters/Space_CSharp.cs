@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Linq;
-using System.IO;
 using UnityEngine;
 
 namespace UBlockly
@@ -11,9 +10,10 @@ namespace UBlockly
     {
         protected override IEnumerator Execute(Block block)
         {
+            HtmlCodeMaker.Instance.InitHtmlCode();
             CmdEnumerator ctor = CSharp.Interpreter.ValueReturn(block, "HTML");
             yield return ctor;
-            HtmlCodeMaker.Instance.AddHtmlCode();
+            HtmlCodeMaker.Instance.AddCode("", "</html>","");
             UnityEngine.Debug.Log("html code: ");
             HtmlCodeMaker.Instance.ShowCode();
             HtmlCodeMaker.Instance.MakeHtmlFile();           
