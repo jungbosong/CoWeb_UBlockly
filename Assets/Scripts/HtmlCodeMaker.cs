@@ -7,7 +7,6 @@ using UnityEngine;
 public class HtmlCodeMaker : MonoBehaviour
 {
     public static HtmlCodeMaker Instance = null;
-    private string code = "";
     private StringBuilder strBuilder = new StringBuilder();
 
     void Awake() 
@@ -24,6 +23,7 @@ public class HtmlCodeMaker : MonoBehaviour
     }
     public void InitHtmlCode()
     {
+        Debug.Log("html code 초기화");
         strBuilder.Clear();
         strBuilder.Append("<html>");
     }
@@ -50,7 +50,7 @@ public class HtmlCodeMaker : MonoBehaviour
     public void MakeHtmlFile()
         {
             Debug.Log("called MakeHtmlFile");
-            string path = Application.dataPath + "/indextest.html";
+            string path = Application.dataPath + "/index.html";
             
             StreamWriter sw;
             FileStream fs;

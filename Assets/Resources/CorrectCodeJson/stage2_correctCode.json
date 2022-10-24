@@ -1,0 +1,14 @@
+{"tagInfoList":
+	[
+		{"tagType":"cptag", "tagName":"img","data":"","property":"https://cdn3.iconfinder.com/data/icons/user-interface-169/32/login-128.png"},
+		{"tagType":"ctag", "tagName":"h1","data":"회원가입","property":""},
+		{"tagType":"ctag", "tagName":"form","data":"","property":""},
+		{"tagType":"ctag", "tagName":"label","data":"아이디","property":""},
+		{"tagType":"cptag", "tagName":"input","data":"아이디","property":"text"},
+		{"tagType":"ctag", "tagName":"label","data":"비밀번호","property":""},
+		{"tagType":"cptag", "tagName":"input","data":"비밀번호","property":"password"},
+		{"tagType":"ctag", "tagName":"label","data":"비밀번호 확인","property":""},
+		{"tagType":"cptag", "tagName":"input","data":"비밀번호 확인","property":"password"},
+		{"tagType":"ctag", "tagName":"button","data":"제출","property":""}
+	]
+}

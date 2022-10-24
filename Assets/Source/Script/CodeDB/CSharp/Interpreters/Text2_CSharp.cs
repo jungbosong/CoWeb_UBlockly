@@ -13,6 +13,7 @@ namespace UBlockly
             string value = block.GetFieldValue("TEXT");
             HtmlCodeMaker.Instance.AddCode("", "", value);
             HtmlCodeMaker.Instance.ShowCode();
+            JsonMaker.Instance.AddData("ntag", "", value, "");
             CmdEnumerator ctor = CSharp.Interpreter.ValueReturn(block, "TEXT");
             yield return ctor;          
         }
@@ -26,6 +27,7 @@ namespace UBlockly
             string value = block.GetFieldValue("TEXT");
             HtmlCodeMaker.Instance.AddCode("<h1>", "</h1>", value);
             HtmlCodeMaker.Instance.ShowCode();
+            JsonMaker.Instance.AddData("ctag", "h1", value, "");
             CmdEnumerator ctor = CSharp.Interpreter.ValueReturn(block, "TEXT");
             yield return ctor;            
         }
@@ -39,6 +41,7 @@ namespace UBlockly
             string value = block.GetFieldValue("TEXT");
             HtmlCodeMaker.Instance.AddCode("<p>", "</p>", value);
             HtmlCodeMaker.Instance.ShowCode();
+            JsonMaker.Instance.AddData("ctag", "p", value, "");
             CmdEnumerator ctor = CSharp.Interpreter.ValueReturn(block, "TEXT");
             yield return ctor;            
         }
@@ -52,6 +55,7 @@ namespace UBlockly
             string value = block.GetFieldValue("TEXT");
             HtmlCodeMaker.Instance.AddCode("<span>", "</span>", value);
             HtmlCodeMaker.Instance.ShowCode();
+            JsonMaker.Instance.AddData("ctag", "span", value, "");
             CmdEnumerator ctor = CSharp.Interpreter.ValueReturn(block, "TEXT");
             yield return ctor;            
         }
@@ -65,6 +69,7 @@ namespace UBlockly
             string value = block.GetFieldValue("TEXT");
             HtmlCodeMaker.Instance.AddCode("<b >", "</b >", value);
             HtmlCodeMaker.Instance.ShowCode();
+            JsonMaker.Instance.AddData("ctag", "b", value, "");
             CmdEnumerator ctor = CSharp.Interpreter.ValueReturn(block, "TEXT");
             yield return ctor;                     
         }
@@ -78,6 +83,7 @@ namespace UBlockly
             string value = block.GetFieldValue("VALUE");
             HtmlCodeMaker.Instance.AddCode("<br>", "", "");
             HtmlCodeMaker.Instance.ShowCode();
+            JsonMaker.Instance.AddData("nctag", "br", "", "");
             CmdEnumerator ctor = CSharp.Interpreter.ValueReturn(block, "TEXT");
             yield return ctor;          
         }
@@ -99,27 +105,27 @@ namespace UBlockly
             switch (property)
             {
                 default:
-                    //result += "www.coweb1.com";
+                    property = "www.coweb1.com";
                     strBuilder.Append("www.coweb1.com");
                     break;
                     
                 case "COWEB2":
-                    //result += "www.coweb2.com";
+                    property = "www.coweb2.com";
                     strBuilder.Append("www.coweb2.com");
                     break;
                     
                 case "COWEB3":
-                    //result += "www.coweb3.com";
+                    property = "www.coweb3.com";
                     strBuilder.Append("www.coweb3.com");
                     break;
                     
                 case "COWEB4":
-                    //result += "www.coweb4.com";
+                    property = "www.coweb4.com";
                     strBuilder.Append("www.coweb4.com");
                     break;
                     
                 case "COWEB5":
-                    //result += "www.coweb5.com";
+                    property = "www.coweb5.com";
                     strBuilder.Append("www.coweb5.com");
                     break;
             }
@@ -129,6 +135,7 @@ namespace UBlockly
             UnityEngine.Debug.Log("text2_a_result: " + strBuilder.ToString());
             HtmlCodeMaker.Instance.AddCode("", "", strBuilder.ToString());
             HtmlCodeMaker.Instance.ShowCode();
+            JsonMaker.Instance.AddData("cptag", "", value, property);
             CmdEnumerator ctor = CSharp.Interpreter.ValueReturn(block, "TEXT");
             yield return ctor;
         }
@@ -141,6 +148,7 @@ namespace UBlockly
         {   
             HtmlCodeMaker.Instance.AddCode("<ul>", "", "");
             HtmlCodeMaker.Instance.ShowCode();
+            JsonMaker.Instance.AddData("ctag", "ul", "", "");
             CmdEnumerator ctor = CSharp.Interpreter.ValueReturn(block, "VALUE");
             yield return ctor;            
             HtmlCodeMaker.Instance.AddCode("", "</ul>", "");
@@ -155,6 +163,7 @@ namespace UBlockly
             string value = block.GetFieldValue("TEXT");
             HtmlCodeMaker.Instance.AddCode("<li>", "</li>", value);
             HtmlCodeMaker.Instance.ShowCode();
+            JsonMaker.Instance.AddData("ctag", "li", value, "");
             CmdEnumerator ctor = CSharp.Interpreter.ValueReturn(block, "TEXT");
             yield return ctor;          
         }

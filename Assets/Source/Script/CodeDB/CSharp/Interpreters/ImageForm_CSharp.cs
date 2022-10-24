@@ -22,22 +22,27 @@ namespace UBlockly
             switch (property)
             {
                 default:
+                    property = "image1.png";
                     strBuilder.Append("image1.png");
                     break;
                     
                 case "IMAGE2":
+                    property = "image2.png";
                     strBuilder.Append("image2.png");
                     break;
                     
                 case "IMAGE3":
+                    property = "https://cdn3.iconfinder.com/data/icons/user-interface-169/32/login-128.png";
                     strBuilder.Append("https://cdn3.iconfinder.com/data/icons/user-interface-169/32/login-128.png");
                     break;
                     
                 case "IMAGE4":
+                    property = "image4.png";
                     strBuilder.Append("image4.png");
                     break;
                     
                 case "IMAGE5":
+                    property = "image5.png";
                     strBuilder.Append("image5.png");
                     break;
             }
@@ -46,6 +51,7 @@ namespace UBlockly
             UnityEngine.Debug.Log("imageForm_img_result: " + strBuilder.ToString());
             HtmlCodeMaker.Instance.AddCode("", "", strBuilder.ToString());
             HtmlCodeMaker.Instance.ShowCode();
+            JsonMaker.Instance.AddData("cptag", "img", value, property);
             CmdEnumerator ctor = CSharp.Interpreter.ValueReturn(block, "VALUE");
             yield return ctor;
         }
@@ -57,6 +63,7 @@ namespace UBlockly
         protected override IEnumerator Execute(Block block)
         {
             HtmlCodeMaker.Instance.AddCode("<form>", "", "");
+            JsonMaker.Instance.AddData("ctag", "form", "", "");
             CmdEnumerator ctor = CSharp.Interpreter.ValueReturn(block, "VALUE");
             yield return ctor;
             HtmlCodeMaker.Instance.AddCode("", "</form>", "");
@@ -71,6 +78,7 @@ namespace UBlockly
         {
             string data = block.GetFieldValue("TEXT");
             HtmlCodeMaker.Instance.AddCode("<label>", "", data);
+            JsonMaker.Instance.AddData("ctag", "label", data, "");
             CmdEnumerator ctor = CSharp.Interpreter.ValueReturn(block, "VALUE");
             yield return ctor;
             HtmlCodeMaker.Instance.AddCode("", "</label>", "");
@@ -104,6 +112,7 @@ namespace UBlockly
             strBuilder.Append("\"/>");
 
             HtmlCodeMaker.Instance.AddCode("", "", strBuilder.ToString());
+            JsonMaker.Instance.AddData("cptag", "input", placeHolder, property);
             CmdEnumerator ctor = CSharp.Interpreter.ValueReturn(block, "PLACEHOLDER");
             yield return ctor;
         }
@@ -116,6 +125,7 @@ namespace UBlockly
         {
             string data = block.GetFieldValue("TEXT");
             HtmlCodeMaker.Instance.AddCode("<button>", "</button>", data);
+            JsonMaker.Instance.AddData("ctag", "button", data, "");
             CmdEnumerator ctor = CSharp.Interpreter.ValueReturn(block, "TEXT");
             yield return ctor;
         }
