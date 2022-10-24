@@ -11,12 +11,14 @@ namespace UBlockly
         protected override IEnumerator Execute(Block block)
         {
             HtmlCodeMaker.Instance.InitHtmlCode();
+            JsonMaker.Instance.InitJsonData();
             CmdEnumerator ctor = CSharp.Interpreter.ValueReturn(block, "HTML");
             yield return ctor;
             HtmlCodeMaker.Instance.AddCode("", "</html>","");
             UnityEngine.Debug.Log("html code: ");
             HtmlCodeMaker.Instance.ShowCode();
-            HtmlCodeMaker.Instance.MakeHtmlFile();           
+            HtmlCodeMaker.Instance.MakeHtmlFile();
+            JsonMaker.Instance.MakeJsonFile();
             //WebView.Instance.StartWebView();
         }
     }

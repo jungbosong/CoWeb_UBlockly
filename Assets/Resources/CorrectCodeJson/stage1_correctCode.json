@@ -1,0 +1,17 @@
+{"tagInfoList":
+	[
+		{"type": "ctag", "tagName": "h1", "data": "최신 MBTK 검사기","property": ""},
+		{"type": "ntag", "tagName": "", "data": "총 검사 시간은","property": ""},
+		{"type": "ctag", "tagName": "b", "data": "2890분","property": ""},
+		{"type": "ntag", "tagNmae": "", "data": "내외입니다.","property": ""},
+		{"type": "nctag", "tagName": "br", "data": "","property": ""},
+		{"type": "ntag", "tagNmae": "", "data": "질문이 마음에 안 든다구요? 어쩔 수 없습니다!","property": ""},
+		{"type": "nctag", "tagName": "br", "data": "","property": ""},
+		{"type": "ntag", "tagNmae": "", "data": "검사 도중 사이트를 끄는 행위는 불가능합니다.","property": ""},
+		{"type": "nctag", "tagName": "br", "data": "","property": ""},
+		{"type": "nctag", "tagName": "br", "data": "","property": ""},
+		{"type": "ntag", "tagNmae": "", "data": "그래도 검사를 해보시겠습니까? 그럼 하단의 링크를 클릭해주세요.","property": ""},
+		{"type": "nctag", "tagName": "br", "data": "","property": ""},
+		{"type": "cptag", "tagName": "a", "data": "검사시작", "property": "link2"}
+	]
+}

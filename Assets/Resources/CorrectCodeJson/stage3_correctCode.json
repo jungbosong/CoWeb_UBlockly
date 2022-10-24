@@ -1,0 +1,12 @@
+{"tagInfoList":
+	[
+		{"tagType":"ctag", "tagName":"h1","data":"최종 주문 정보 확인","property":""},
+		{"tagType":"ctag", "tagName":"p","data":"주문 정보를 확인하는 중입니다.","property":""},
+		{"tagType":"ctag", "tagName":"p","data":"장바구니에 담긴 내역을 요약합니다.","property":""},
+		{"tagType":"ctag", "tagName":"ul","data":"","property":""},
+		{"tagType":"ctag", "tagName":"li","data":"후드티","property":""},
+		{"tagType":"ctag", "tagName":"li","data":"청바지","property":""},
+		{"tagType":"ctag", "tagName":"li","data":"스니커즈","property":""},
+		{"tagType":"ctag", "tagName":"button","data":"주문하기","property":""}
+	]
+}
