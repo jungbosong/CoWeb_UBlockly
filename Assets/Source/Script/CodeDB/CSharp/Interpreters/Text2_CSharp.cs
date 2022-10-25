@@ -135,7 +135,7 @@ namespace UBlockly
             UnityEngine.Debug.Log("text2_a_result: " + strBuilder.ToString());
             HtmlCodeMaker.Instance.AddCode("", "", strBuilder.ToString());
             HtmlCodeMaker.Instance.ShowCode();
-            JsonMaker.Instance.AddData("cptag", "", value, property);
+            JsonMaker.Instance.AddData("cptag", "a", value, property);
             CmdEnumerator ctor = CSharp.Interpreter.ValueReturn(block, "TEXT");
             yield return ctor;
         }

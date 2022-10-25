@@ -9,7 +9,7 @@ public class StageCanvas : MonoBehaviour
     [SerializeField] List<GameObject> stageBtns = new List<GameObject>();
     [SerializeField] Sprite clickedImg;
     [SerializeField] Sprite notClickedImg;
-    [SerializeField] GameObject notOpenedPopup;
+    [SerializeField] GameObject notOpenedPopup, preparingPopup;
     List<StageData> stages = new List<StageData>();
 
     void Start() 
@@ -17,6 +17,7 @@ public class StageCanvas : MonoBehaviour
         stages = StageManager.Instance.GetStageData();
         SetStageBtnUI();
         notOpenedPopup.SetActive(false);
+        preparingPopup.SetActive(false);
     }
 
     void SetStageBtnUI()
@@ -71,24 +72,32 @@ public class StageCanvas : MonoBehaviour
     {
         SetStageBtnImg();
         stageBtns[btnNum].GetComponent<Button>().GetComponent<Image>().sprite = clickedImg;
-        if(!stages[btnNum].GetIsLocked()) 
+        if(btnNum == 4)
         {
-            StageManager.Instance.stageNum = btnNum;
-            Debug.Log("Start Stage_" + btnNum);
-            SceneManager.LoadScene("UGUIDemo");
+            Debug.Log("아직 준비중인 스테이지입니다.");
+            StartCoroutine(ShowPopup(preparingPopup));
         }
         else
         {
-            Debug.Log("It's Locked Stage");
-            notOpenedPopup.SetActive(true);
-            StartCoroutine(CloseNOpnedPopup());
+            if(!stages[btnNum].GetIsLocked()) 
+            {
+                StageManager.Instance.stageNum = btnNum;
+                Debug.Log("Start Stage_" + btnNum);
+                SceneManager.LoadScene("UGUIDemo");
+            }
+            else
+            {
+                Debug.Log("It's Locked Stage");
+                StartCoroutine(ShowPopup(notOpenedPopup));
+            }
         }
     }
 
-    IEnumerator CloseNOpnedPopup()
+    IEnumerator ShowPopup(GameObject popup)
     {
         WaitForSeconds waitForSecodns = new WaitForSeconds(1.5f);
+        popup.SetActive(true);
         yield return waitForSecodns;
-        notOpenedPopup.SetActive(false);
+        popup.SetActive(false);
     }
 }
