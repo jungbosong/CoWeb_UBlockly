@@ -62,7 +62,7 @@ public class AnswerChecker : MonoBehaviour
                 } 
                 accuracy++;
             } 
-            if(accuracy == correctCode.Count)
+            if(90 <= (float)accuracy/correctCode.Count*100)
             {
                 inGameCanvas.SetIsCorrect();
                 StageManager.Instance.AddStageNum();
