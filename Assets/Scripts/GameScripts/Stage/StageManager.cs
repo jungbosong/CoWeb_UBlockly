@@ -9,6 +9,7 @@ public class StageManager : MonoBehaviour
     private List<StageData> stages = new List<StageData>();
     [SerializeField] GameObject stageInfo;
     public int stageNum{get; set;}      // 현재 진행 중인 스테이지 번호
+    int maxStageNum = 4;
     void Awake() 
     {
         if(Instance == null)    
@@ -31,6 +32,19 @@ public class StageManager : MonoBehaviour
             stages.Add(new StageData());
             stages[i] = stageInfo.transform.GetChild(i).GetComponent<StageData>();
         }
+    }
+    public void AddStageNum()
+    {
+        stageNum++;
+        if(stageNum >= maxStageNum)
+        {
+            stageNum = 4;
+        }
+    }
+
+    public void OpenStage()
+    {
+        stages[stageNum].SetIsLocked(false);
     }
 
     void ShowStageInfo()

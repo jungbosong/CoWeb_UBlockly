@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class InGameCanvas : MonoBehaviour
 {
@@ -56,6 +57,7 @@ public class InGameCanvas : MonoBehaviour
             popups[2].SetActive(false);
             yield return waitFor1Secodns;
             Debug.Log("스테이지 선택 화면으로 이동");
+            SceneManager.LoadScene("1_StageScene");
         }  
         popupPanel.SetActive(false);      
     }

@@ -16,11 +16,17 @@ public class AnswerChecker : MonoBehaviour
     // 제출 버튼 눌렀을 때 실행되는 함수
     public void OnClickedSubmitBtn()
     {
+        string path = "Assets/Resources/CorrectCodeJson/stage" + StageManager.Instance.stageNum + "_correctCode.json";
+        Debug.Log("path: " + path);
         // 정답 json코드 읽기
-        List<TagInfo> correctCode = ReadJson("Assets/Resources/CorrectCodeJson/testJson.json").tagInfoList;
+        List<TagInfo> correctCode = ReadJson(path).tagInfoList;
+        Debug.Log("correct Code: ");
+        printReadedCode(correctCode);
         
         // 블록 코딩으로 만들어진 json코드 읽기    
         List<TagInfo> answerCode = ReadJson(Application.dataPath + "/index.json").tagInfoList;
+        Debug.Log("answer Code: ");
+        printReadedCode(answerCode);
 
         // 코드 일치 여부 확인
         if(answerCode.Count <= correctCode.Count)
@@ -28,6 +34,8 @@ public class AnswerChecker : MonoBehaviour
             int accuracy = 0;
             for(int i = 0; i < answerCode.Count; i++)
             {
+                //Debug.Log("i: " + i + " answerCode[i]: " + answerCode[i].tagType);
+                //Debug.Log("i: " + i + " correctCode[i]: " + correctCode[i].tagType);
                 if(!correctCode[i].tagType.Equals(answerCode[i].tagType))    // tagType 확인
                 {
                     //Debug.Log("코드가 일치하지 않습니다! 사유: 타입");
@@ -57,6 +65,8 @@ public class AnswerChecker : MonoBehaviour
             if(accuracy == correctCode.Count)
             {
                 inGameCanvas.SetIsCorrect();
+                StageManager.Instance.AddStageNum();
+                StageManager.Instance.OpenStage();
             }
             inGameCanvas.SetAccuracy(accuracy);            
         }
@@ -71,7 +81,7 @@ public class AnswerChecker : MonoBehaviour
         return JsonUtility.FromJson<TagData>(json);
     }
 
-    /*void printReadedCode(List<TagInfo>  code)
+    void printReadedCode(List<TagInfo>  code)
     {        
         for(int i = 0; i < code.Count; i++)
         {
@@ -80,5 +90,5 @@ public class AnswerChecker : MonoBehaviour
             Debug.Log("data: " + code[i].data);
             Debug.Log("property: " + code[i].property);
         }
-    }*/
+    }
 }
