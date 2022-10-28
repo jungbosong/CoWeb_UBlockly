@@ -86,26 +86,26 @@ namespace UBlockly.UGUI
 
             if (mode == Runner.Mode.Normal)
             {
-                m_BtnStep.gameObject.SetActive(false);
-                m_BtnStop.gameObject.SetActive(true);
+                //m_BtnStep.gameObject.SetActive(false);
+                //m_BtnStop.gameObject.SetActive(true);
                 m_BtnRun.gameObject.SetActive(true);
-                m_BtnPause.gameObject.SetActive(false);
-                m_ToggleCallstack.gameObject.SetActive(false);
+                //m_BtnPause.gameObject.SetActive(false);
+                //m_ToggleCallstack.gameObject.SetActive(false);
             }
             else
             {
-                m_BtnStep.gameObject.SetActive(true);
-                m_BtnStop.gameObject.SetActive(true);
+                //m_BtnStep.gameObject.SetActive(true);
+                //m_BtnStop.gameObject.SetActive(true);
                 m_BtnRun.gameObject.SetActive(false);
-                m_BtnPause.gameObject.SetActive(false);
-                m_ToggleCallstack.gameObject.SetActive(true);
+                //m_BtnPause.gameObject.SetActive(false);
+                //m_ToggleCallstack.gameObject.SetActive(true);
             }
         }
 
         private void OnRun()
         {            
             m_BtnRun.gameObject.SetActive(false);
-            m_BtnPause.gameObject.SetActive(true);
+            //m_BtnPause.gameObject.SetActive(true);
             EnableSettings(false);
 
             if (CSharp.Runner.CurStatus == Runner.Status.Stop)
