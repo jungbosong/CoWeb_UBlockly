@@ -13,9 +13,9 @@ public class StageData : MonoBehaviour
     [SerializeField] string clientGender; // 의뢰인 성별
     [SerializeField] string clientAddress;  // 의뢰인 주소
     [SerializeField] string clientCareer;   // 의뢰인 작업
-    [SerializeField] string correctCodePath;  // 정답 코드 경로
+    [SerializeField] TextAsset correctCode;  // 정답 코드 경로
     [SerializeField] Sprite requestImg; // 요구사항 결과물
-    [SerializeField] string requestPath;    // 요구사항 내용 경로
+    [SerializeField] TextAsset request;    // 요구사항 내용 경로
 
     public int GetStageNum()    // 스테이지 번호 반환 함수
     {
@@ -49,17 +49,17 @@ public class StageData : MonoBehaviour
     {
         return clientCareer;
     }
-    public string GetCorrectCodePath() // 정답 코드 경로 반환 함수
+    public TextAsset GetCorrectCode() // 정답 코드 경로 반환 함수
     {
-        return correctCodePath;
+        return correctCode;
     }
     public Sprite GetRequestImg() // 요구사항 결과물 이미지 반환 함수
     {
         return requestImg;
     }
-    public string GetRequestPath() // 요구사항 내용 경로 반환 함수
+    public TextAsset GetRequest() // 요구사항 내용 경로 반환 함수
     {
-        return requestPath;
+        return request;
     }
     public void SetIsLocked(bool locked) // 잠김 여부 locked로 설정하는 함수
     {

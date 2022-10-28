@@ -50,7 +50,7 @@ public class HtmlCodeMaker : MonoBehaviour
     public void MakeHtmlFile()
         {
             Debug.Log("called MakeHtmlFile");
-            string path = Application.dataPath + "/index.html";
+            string path = Application.persistentDataPath + "/index.htm";
             
             StreamWriter sw;
             FileStream fs;

@@ -95,6 +95,7 @@ public class StageCanvas : MonoBehaviour
                 Debug.Log("Start Stage_" + btnNum);
                 monitorCanvas.GetComponent<MonitorCanvas>().SetMonitor();
                 monitorCanvas.SetActive(true);
+                Debug.Log("monitorCanvas.SetActive(true)");
             }
             else
             {
