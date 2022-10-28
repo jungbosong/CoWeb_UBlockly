@@ -48,14 +48,7 @@ public class InGameCanvas : MonoBehaviour
 
     void SetRequirementText()
     {
-        FileStream fs = new FileStream(StageManager.Instance.GetStageData()[stageNum].GetRequestPath(), FileMode.Open);
-        StreamReader sr = new StreamReader(fs);
-
-        string txt = sr.ReadToEnd();
-        requirementText.GetComponent<Text>().text = txt;
-        Debug.Log(txt);
-        sr.Close();
-        fs.Close();
+        requirementText.GetComponent<Text>().text = StageManager.Instance.GetStageData()[stageNum].GetRequest().text;
     }
 
     // 메뉴 버튼 눌렀을 때 실행되는 함수

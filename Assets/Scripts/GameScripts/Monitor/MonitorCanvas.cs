@@ -32,6 +32,7 @@ public class MonitorCanvas : MonoBehaviour
 
     public void SetMonitor()
     {
+        Debug.Log("모니터 화면 설정");
         stageNum = StageManager.Instance.stageNum;
         SetClientInfo();
         SetRequirementImg();
@@ -102,14 +103,7 @@ public class MonitorCanvas : MonoBehaviour
     // 현재 스테이지 번호에 따라 메일 내용 수정하는 함수
     void SetMailText()
     {
-        FileStream fs = new FileStream(StageManager.Instance.GetStageData()[stageNum].GetRequestPath(), FileMode.Open);
-        StreamReader sr = new StreamReader(fs);
-
-        string txt = sr.ReadToEnd();
-        mailText.GetComponent<Text>().text = txt;
-        Debug.Log(txt);
-        sr.Close();
-        fs.Close();
+        mailText.GetComponent<Text>().text = StageManager.Instance.GetStageData()[stageNum].GetRequest().text;
     }
 
     // 현재 스테이지 번호에 따라 요구사항 이미지 변경하는 함수

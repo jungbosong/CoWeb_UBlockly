@@ -66,7 +66,7 @@ public class JsonMaker : MonoBehaviour
         string json = JsonUtility.ToJson(tagData);
         
         // 파일로 저장
-        string path = Application.dataPath + "/index.json";
+        string path = Application.persistentDataPath + "/index.json";
             
         StreamWriter sw;
         FileStream fs;

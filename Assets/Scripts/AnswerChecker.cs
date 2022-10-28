@@ -16,15 +16,16 @@ public class AnswerChecker : MonoBehaviour
     // 제출 버튼 눌렀을 때 실행되는 함수
     public void OnClickedSubmitBtn()
     {
-        string path = "Assets/Resources/CorrectCodeJson/stage" + StageManager.Instance.stageNum + "_correctCode.json";
-        Debug.Log("path: " + path);
+        int stageNum = StageManager.Instance.stageNum;
+        string correctjsonCode = StageManager.Instance.GetStageData()[stageNum].GetCorrectCode().text;
+
         // 정답 json코드 읽기
-        List<TagInfo> correctCode = ReadJson(path).tagInfoList;
+        List<TagInfo> correctCode = JsonUtility.FromJson<TagData>(correctjsonCode).tagInfoList;
         Debug.Log("correct Code: ");
         printReadedCode(correctCode);
         
         // 블록 코딩으로 만들어진 json코드 읽기    
-        List<TagInfo> answerCode = ReadJson(Application.dataPath + "/index.json").tagInfoList;
+        List<TagInfo> answerCode = ReadJson(Application.persistentDataPath + "/index.json").tagInfoList;
         Debug.Log("answer Code: ");
         printReadedCode(answerCode);
 
