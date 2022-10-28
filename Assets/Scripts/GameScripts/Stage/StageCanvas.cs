@@ -9,7 +9,7 @@ public class StageCanvas : MonoBehaviour
     [SerializeField] List<GameObject> stageBtns = new List<GameObject>();
     [SerializeField] Sprite clickedImg;
     [SerializeField] Sprite notClickedImg;
-    [SerializeField] GameObject notOpenedPopup, preparingPopup;
+    [SerializeField] GameObject monitorCanvas, notOpenedPopup, preparingPopup;
     List<StageData> stages = new List<StageData>();
 
     void Start() 
@@ -18,6 +18,7 @@ public class StageCanvas : MonoBehaviour
         SetStageBtnUI();
         notOpenedPopup.SetActive(false);
         preparingPopup.SetActive(false);
+        monitorCanvas.SetActive(false);
     }
 
     void SetStageBtnUI()
@@ -83,7 +84,8 @@ public class StageCanvas : MonoBehaviour
             {
                 StageManager.Instance.stageNum = btnNum;
                 Debug.Log("Start Stage_" + btnNum);
-                SceneManager.LoadScene("UGUIDemo");
+                monitorCanvas.GetComponent<MonitorCanvas>().SetMonitor();
+                monitorCanvas.SetActive(true);
             }
             else
             {

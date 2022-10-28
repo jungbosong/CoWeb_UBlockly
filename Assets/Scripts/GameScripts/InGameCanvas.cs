@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -9,10 +10,14 @@ public class InGameCanvas : MonoBehaviour
     int totalCnt = 0;
     int accuracy = 0;
     bool isCorrect = false;
-
+    [SerializeField] GameObject menuPanel;
+    [SerializeField] GameObject requirementPanel;
+    [SerializeField] GameObject requirementText;
+    [SerializeField] GameObject requirementImg;
     [SerializeField] GameObject popupPanel;
     [SerializeField] List<GameObject> popups = new List<GameObject>();      // 팝업창 UI [확인중, 오답, 정답]
     [SerializeField] Text correctText;        // 정답 개수 보여줄 text
+    int stageNum;
 
     void Awake() 
     {
@@ -22,7 +27,54 @@ public class InGameCanvas : MonoBehaviour
         {
             popups[i].SetActive(false);
         }
+        stageNum = StageManager.Instance.stageNum;
         correctText = correctText.gameObject.GetComponent<Text>();
+        requirementPanel.SetActive(false);
+        menuPanel.SetActive(false);
+    }
+
+    // 말풍선 버튼 눌렀을 때 실행되는 함수
+    public void OnClickedDialogueBtn()
+    {
+        SetRequirementImg();
+        SetRequirementText();
+        requirementPanel.SetActive(true);
+    }
+
+    void SetRequirementImg()
+    {
+        requirementImg.GetComponent<Image>().sprite = StageManager.Instance.GetStageData()[stageNum].GetRequestImg();
+    }
+
+    void SetRequirementText()
+    {
+        FileStream fs = new FileStream(StageManager.Instance.GetStageData()[stageNum].GetRequestPath(), FileMode.Open);
+        StreamReader sr = new StreamReader(fs);
+
+        string txt = sr.ReadToEnd();
+        requirementText.GetComponent<Text>().text = txt;
+        Debug.Log(txt);
+        sr.Close();
+        fs.Close();
+    }
+
+    // 메뉴 버튼 눌렀을 때 실행되는 함수
+    public void OnClickedMenuBtn()
+    {
+        menuPanel.SetActive(true);
+    }
+
+    public void OnClickedCloseRequestBtn()
+    {
+        requirementPanel.SetActive(false);
+    }
+    public void OnClickedCloseMenuBtn()
+    {
+        menuPanel.SetActive(false);
+    }
+    public void OnClickedStageBtn()
+    {
+        SceneManager.LoadScene("1_StageScene");
     }
 
     public void ShowPopup()
