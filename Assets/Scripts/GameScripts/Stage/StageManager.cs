@@ -8,8 +8,8 @@ public class StageManager : MonoBehaviour
     public static StageManager Instance = null;
     private List<StageData> stages = new List<StageData>();
     [SerializeField] GameObject stageInfo;
-    public int stageNum{get; set;}      // 현재 진행 중인 스테이지 번호
-    int maxStageNum = 4;
+    public int stageNum{get; set;}  // 현재 진행 중인 스테이지 번호
+    int maxStageNum = 4;   // 마지막 스테이지 번호
     void Awake() 
     {
         if(Instance == null)    

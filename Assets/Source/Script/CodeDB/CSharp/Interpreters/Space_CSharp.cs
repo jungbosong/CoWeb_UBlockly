@@ -19,7 +19,7 @@ namespace UBlockly
             HtmlCodeMaker.Instance.ShowCode();
             HtmlCodeMaker.Instance.MakeHtmlFile();
             JsonMaker.Instance.MakeJsonFile();
-            //WebView.Instance.StartWebView();
+            WebView.Instance.StartWebView();
         }
     }
 

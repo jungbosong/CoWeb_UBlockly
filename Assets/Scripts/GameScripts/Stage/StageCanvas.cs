@@ -6,10 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class StageCanvas : MonoBehaviour
 {
+    // 월 ~ 금 스테이지 버튼 객체
     [SerializeField] List<GameObject> stageBtns = new List<GameObject>();
+    // 스테이지 버튼이 클릭 됬을 때 이미지
     [SerializeField] Sprite clickedImg;
+    // 스테이지 버튼이 클릭 안 됬을 때 이미지
     [SerializeField] Sprite notClickedImg;
-    [SerializeField] GameObject monitorCanvas, notOpenedPopup, preparingPopup;
+    // monitorCanvas 객체
+    [SerializeField] GameObject monitorCanvas;
+    // 열리지 않은 스테이지 선택했을 때 뜨는 팝업 객체
+    [SerializeField] GameObject notOpenedPopup;
+    // 준비 중인 스테이지 선택했을 때 뜨는 팝업 객체
+    [SerializeField] GameObject preparingPopup;
+    // StageManager.cs에서 관리되는 스테이지 정보를 List로 저장하는 변수
     List<StageData> stages = new List<StageData>();
 
     void Start() 
