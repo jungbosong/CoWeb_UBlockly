@@ -15,6 +15,7 @@ public class InGameCanvas : MonoBehaviour
     [SerializeField] GameObject requirementText;
     [SerializeField] GameObject requirementImg;
     [SerializeField] GameObject popupPanel;
+    [SerializeField] GameObject requestImgPreview;
     [SerializeField] List<GameObject> popups = new List<GameObject>();      // 팝업창 UI [확인중, 오답, 정답]
     [SerializeField] Text correctText;        // 정답 개수 보여줄 text
     int stageNum;
@@ -31,6 +32,7 @@ public class InGameCanvas : MonoBehaviour
         correctText = correctText.gameObject.GetComponent<Text>();
         requirementPanel.SetActive(false);
         menuPanel.SetActive(false);
+        requestImgPreview.GetComponent<Image>().sprite = StageManager.Instance.GetStageData()[stageNum].GetRequestImg();
     }
 
     // 말풍선 버튼 눌렀을 때 실행되는 함수
@@ -38,6 +40,7 @@ public class InGameCanvas : MonoBehaviour
     {
         SetRequirementImg();
         SetRequirementText();
+        WebView.Instance.StartPopupWebView();
         requirementPanel.SetActive(true);
     }
 
