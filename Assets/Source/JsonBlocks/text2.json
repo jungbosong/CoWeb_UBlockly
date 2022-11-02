@@ -1,7 +1,7 @@
 [
   {
     "type": "text2_text",
-    "message0": "\" %1 \" %2",
+    "message0": "%{BKY_TEXT_TEXT}",
     "args0": [
       {
         "type": "field_input",
@@ -18,7 +18,7 @@
   },
   {
     "type": "text2_h1",
-    "message0": "<h1> %1 </h1>",
+    "message0": "%{BKY_TEXT_H1}",
     "args0": [
       {
         "type": "field_input",
@@ -30,7 +30,7 @@
   },
   {
     "type": "text2_p",
-    "message0": "<p> %1 </p>",
+    "message0": "%{BKY_TEXT_P}",
     "args0": [
       {
         "type": "field_input",
@@ -42,7 +42,7 @@
   },
   {
     "type": "text2_span",
-    "message0": "<span> %1 </span> %2",
+    "message0": "%{BKY_TEXT_SPAN}",
     "args0": [
       {
         "type": "field_input",
@@ -58,7 +58,7 @@
   },
   {
     "type": "text2_b",
-    "message0": "<b> %1 </b> %2",
+    "message0": "%{BKY_TEXT_B}",
     "args0": [
       {
         "type": "field_input",
@@ -74,7 +74,7 @@
   },
   {
     "type": "text2_br",
-    "message0": "<br> %1",
+    "message0": "%{BKY_TEXT_BR}",
     "args0": [
       {
         "type": "input_value",
@@ -85,7 +85,7 @@
   },
   {
     "type": "text2_a",
-    "message0": "<a href=\"%1\"> %2 </a> %3",
+    "message0": "%{BKY_TEXT_A}",
     "args0": [
       {
         "type": "field_dropdown",
@@ -111,7 +111,7 @@
   },
   {
     "type": "text2_ul",
-    "message0": "<ul> %1",
+    "message0": "%{BKY_TEXT_UL}",
     "args0": [
       {
         "type": "input_value",
@@ -123,7 +123,7 @@
   },
   {
     "type": "text2_li",
-    "message0": "<li> %1 </li>",
+    "message0": "%{BKY_TEXT_LI}",
     "args0": [
       {
         "type": "field_input",

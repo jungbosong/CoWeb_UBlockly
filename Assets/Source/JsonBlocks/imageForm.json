@@ -1,7 +1,7 @@
 [
   {
     "type": "imageForm_img",
-    "message0": "<img src=\"%1\"> %2",
+    "message0": "%{BKY_IMAGEFORM_IMG}",
     "args0": [
       {
         "type": "field_dropdown",
@@ -23,11 +23,11 @@
   },
   {
     "type": "imageForm_form",
-    "message0": "<form> %1",
-    "args0":[
+    "message0": "%{BKY_IMAGEFORM_FORM}",
+    "args0": [
       {
         "type": "input_value",
-        "name":"VALUE"
+        "name": "VALUE"
       }
     ],
     "nextStatement": null,
@@ -35,7 +35,7 @@
   },
   {
     "type": "imageForm_label",
-    "message0": "<label> %1 %2 </label>",
+    "message0": "%{BKY_IMAGEFORM_LABEL}",
     "args0": [
       {
         "type": "field_input",
@@ -51,7 +51,7 @@
   },
   {
     "type": "imageForm_input",
-    "message0": "<input> type=\"%1\" placeholder=\"%2\" <br>",
+    "message0": "%{BKY_IMAGEFORM_INPUT}",
     "args0": [
       {
         "type": "field_dropdown",
@@ -71,7 +71,7 @@
   },
   {
     "type": "imageForm_button",
-    "message0": "<button> %1 </button>",
+    "message0": "%{BKY_IMAGEFORM_BUTTON}",
     "args0": [
       {
         "type": "field_input",

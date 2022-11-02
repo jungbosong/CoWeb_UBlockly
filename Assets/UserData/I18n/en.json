@@ -20,6 +20,22 @@
   "TODAY": "Today",
 
   // Context menus.
+  // TEXT
+  "TEXT_TEXT": "\" %1 \" %2",
+  "TEXT_H1": "제목 %1",
+  "TEXT_P": "문단 %1",
+  "TEXT_SPAN": "텍스트 %1 %2",
+  "TEXT_B": "굵게하기 %1 %2",
+  "TEXT_BR": "줄 바꾸기 %1",
+  "TEXT_A": "링크 %1 넣기 %2 %3",
+  "TEXT_UL": "순서 없는 목록 만들기 %1",
+  "TEXT_LI": "항목 넣기 %1",
+  // imageForm
+  "IMAGEFORM_IMG": "이미지 %1 넣기 %2",
+  "IMAGEFORM_FORM": "폼 %1",
+  "IMAGEFORM_LABEL": "라벨 %1 %2",
+  "IMAGEFORM_INPUT": "%1 넣기 %2",
+  "IMAGEFORM_BUTTON": "버튼 %1",
   /// context menu - Make a copy of the selected block (and any blocks it contains).\n(Identical|Duplicate)
   "DUPLICATE_BLOCK": "Duplicate",
   /// context menu - Add a descriptive comment to the selected block.

@@ -1,7 +1,7 @@
 [
   {
     "type": "space_html",
-    "message0": "<html> %1",
+    "message0": "시작 %1",
     "args0": [
       {
         "type": "input_value",
@@ -15,12 +15,12 @@
   },
   {
     "type": "space",
-    "message0": "column",
-    "args0":[
+    "message0": "줄",
+    "args0": [
       {
         "type": "input_statement",
-        "name":"COLUMN0",
-        "align":"RIGHT"
+        "name": "COLUMN0",
+        "align": "RIGHT"
       }
     ],
     "nextStatement": null,
