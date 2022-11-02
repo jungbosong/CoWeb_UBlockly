@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class WebView : MonoBehaviour
 {
-    private WebViewObject webViewObject;
-    private WebViewObject popupWebViewObj;
+    private WebViewObject webViewObject = null;
+    private WebViewObject popupWebViewObj = null;
     private bool isOpenedWebView = false;
     // 싱글톤
     private static WebView instance = null;
@@ -33,57 +33,65 @@ public class WebView : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        if (Application.platform == RuntimePlatform.Android) {
-            if (Input.GetKey(KeyCode.Escape))
-            {
-                // 뒤 로 가 기, esc 버 튼 
-                Hide();
-                return;
-            }
-        }
-    }
-
-    public void Show()
-    {
-        StartWebView();
-    }
-
     public void Hide()
     {
         if (webViewObject != null)
         {
-            Destroy(webViewObject);
+            //Destroy(webViewObject);
+            webViewObject.SetVisibility(false);
         }
     }
     public void StartWebView()
     {
-        Debug.Log("called StartWebView");
-        string URL = Application.persistentDataPath + "/index.htm";
-        isOpenedWebView = true;
-        try
+        if(webViewObject != null)
         {
-            webViewObject = (new GameObject("WebViewObject")).AddComponent<WebViewObject>();
-            webViewObject.Init((msg) =>
+            Destroy(webViewObject);
+            webViewObject = null;
+            StartWebView();
+        }
+        else
+        {
+            Debug.Log("called StartWebView");
+            string URL = Application.persistentDataPath + "/index.htm";
+            try
             {
-                Debug.Log(string.Format("CallFromJS[{0}]", msg));
-            });
+                webViewObject = (new GameObject("WebViewObject")).AddComponent<WebViewObject>();
+                webViewObject.Init((msg) =>
+                {
+                    Debug.Log(string.Format("CallFromJS[{0}]", msg));
+                });
 
-            webViewObject.LoadURL(URL);
-            webViewObject.SetVisibility(true);
-            // Margin: 좌, 상, 우, 하 
-            webViewObject.SetMargins((int)(Screen.width * 0.7), (int)(Screen.height * 0.55), 0, 0);
+                webViewObject.LoadURL(URL);
+                /*webViewObject.SetVisibility(true);
+                // Margin: 좌, 상, 우, 하 
+                webViewObject.SetMargins((int)(Screen.width * 0.7), (int)(Screen.height * 0.55), 0, 0);*/
+                ShowWebView();
+            }
+            catch( System.Exception e)
+            {
+                print($"WebView Error : {e}");
+            }
         }
-        catch( System.Exception e)
+    }
+
+    public void ShowWebView()
+    {
+        if(webViewObject != null)
         {
-            print($"WebView Error : {e}");
+            //webViewObject.SetVisibility(true);
+            Debug.Log("ShowWebView");
+            webViewObject.SetMargins((int)(Screen.width * 0.7), (int)(Screen.height * 0.55), 0, 0);
+            webViewObject.SetVisibility(true);
         }
+        /*else if(!isOpenedWebView)
+        {
+            StartWebView();
+        }*/
     }
 
     public void StartPopupWebView()
     {
-        string URL = Application.persistentDataPath + "/index.htm";
+        /*string URL = Application.persistentDataPath + "/index.htm";
         try
         {
             Hide();
@@ -101,7 +109,27 @@ public class WebView : MonoBehaviour
         catch( System.Exception e)
         {
             print($"WebView Error : {e}");
+        }*/
+        if(webViewObject != null)
+        {
+            Debug.Log("ShowPopupWebView");
+            webViewObject.SetMargins((int)(Screen.width * 0.51), (int)(Screen.height * 0.5), (int)(Screen.width * 0.1), (int)(Screen.height * 0.1));
+            webViewObject.SetVisibility(true);
         }
+    }
+    
+    /*public void ShowPopupWebView()
+    {
+        
+        if(popupWebViewObj != null)
+        {
+            popupWebViewObj.SetVisibility(true);
+        }
+        else
+        {
+            StartPopupWebView();
+        }
+        
     }
 
     public void HidePopupWebView()
@@ -110,8 +138,9 @@ public class WebView : MonoBehaviour
         {
             Debug.Log("Destroy PopupWebViewObj");
             Destroy(popupWebViewObj);
+            //popupWebViewObj.SetVisibility(false);
 
-            if(isOpenedWebView) StartWebView();
+            if(isOpenedWebView) ShowWebView();
         }
-    }
+    }*/
 }

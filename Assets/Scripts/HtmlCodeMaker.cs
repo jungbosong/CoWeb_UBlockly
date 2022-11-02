@@ -26,6 +26,7 @@ public class HtmlCodeMaker : MonoBehaviour
         Debug.Log("html code 초기화");
         strBuilder.Clear();
         strBuilder.Append("<html>");
+        strBuilder.Append("<meta name=\"viewport\" content=\"width=device-width, initial-scale=0.7\">");
     }
 
     public void AddCode(string openTag, string closeTag, string data)

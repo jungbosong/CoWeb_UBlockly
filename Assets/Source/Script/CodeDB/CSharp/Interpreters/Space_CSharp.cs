@@ -12,13 +12,14 @@ namespace UBlockly
         {
             HtmlCodeMaker.Instance.InitHtmlCode();
             JsonMaker.Instance.InitJsonData();
+
             CmdEnumerator ctor = CSharp.Interpreter.ValueReturn(block, "HTML");
             yield return ctor;
+
             HtmlCodeMaker.Instance.AddCode("", "</html>","");
-            UnityEngine.Debug.Log("html code: ");
-            HtmlCodeMaker.Instance.ShowCode();
             HtmlCodeMaker.Instance.MakeHtmlFile();
             JsonMaker.Instance.MakeJsonFile();
+
             WebView.Instance.StartWebView();
         }
     }
@@ -31,7 +32,7 @@ namespace UBlockly
             ItemListMutator mutator = block.Mutator as ItemListMutator;
             if (mutator == null)
                 throw new Exception("Block \"space\" must have a mutater \"space_mutator\"");
-            string result = String.Empty;
+
             if (mutator.ItemCount > 0)
             {
                 string[] elements = new string[mutator.ItemCount];
@@ -39,12 +40,8 @@ namespace UBlockly
                 {
                     CmdEnumerator ctor = CSharp.Interpreter.ValueReturn(block, "ADD" + i, new DataStruct(""));
                     yield return ctor;
-                    elements[i] = ctor.Data.StringValue;
-                    UnityEngine.Debug.Log("elements[" + i + "]: " + elements[i]);
                 }
-                result = string.Join("", elements);
             }
-            ReturnData(new DataStruct(result));
         }
     }
 }
