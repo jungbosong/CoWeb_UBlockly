@@ -43,6 +43,10 @@ public class InGameCanvas : MonoBehaviour
         WebView.Instance.StartPopupWebView();
         requirementPanel.SetActive(true);
     }
+    public void OnClickedBackDialogBtn()
+    {
+        WebView.Instance.ShowWebView();
+    }
 
     void SetRequirementImg()
     {
@@ -58,6 +62,12 @@ public class InGameCanvas : MonoBehaviour
     public void OnClickedMenuBtn()
     {
         menuPanel.SetActive(true);
+        WebView.Instance.Hide();
+        //WebView.Instance.HidePopupWebView();
+    }
+    public void OnClickedBackMenuBtn()
+    {
+        WebView.Instance.ShowWebView();
     }
 
     public void OnClickedCloseRequestBtn()
