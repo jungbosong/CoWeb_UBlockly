@@ -345,6 +345,13 @@ namespace UBlockly.UGUI
             //todo: background outline
             /*if (!eventData.dragging && !InToolbox) 
                 BlocklyUI.WorkspaceView.CloneBlockView(this, XYInCodingArea + BlockViewSettings.Get().BumpAwayOffset);*/
+            Debug.Log("BlockView.cs OnPointerClick(eventData");
+            if(!eventData.dragging)
+            {
+                Debug.Log("Not dragging");
+                Debug.Log(eventData);
+                Debug.Log(this);
+            }
         }
         
         #endregion

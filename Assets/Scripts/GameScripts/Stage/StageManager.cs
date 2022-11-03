@@ -10,6 +10,7 @@ public class StageManager : MonoBehaviour
     [SerializeField] GameObject stageInfo;
     public int stageNum{get; set;}  // 현재 진행 중인 스테이지 번호
     int maxStageNum = 4;   // 마지막 스테이지 번호
+    public Dictionary<int, List<string>> openTags{get; private set;}
     void Awake() 
     {
         if(Instance == null)    
@@ -22,7 +23,36 @@ public class StageManager : MonoBehaviour
             Destroy(this.gameObject);
         }
         InitStageInfo();
+        InitOpenTags();
         ShowStageInfo();
+    }
+
+    void InitOpenTags()
+    {
+        openTags = new Dictionary<int, List<string>>();
+        openTags.Add(0, new List<string>());
+        openTags[0].Add("space");
+        openTags[0].Add("space_html");
+        openTags[0].Add("text2_text");
+
+        openTags.Add(1, new List<string>());
+        openTags[1].Add("text2_h1");
+        openTags[1].Add("text2_b");
+        openTags[1].Add("text2_br");
+        openTags[1].Add("text2_a");
+
+        openTags.Add(2, new List<string>());
+        openTags[2].Add("imageForm_img");
+        openTags[2].Add("imageForm_form");
+        openTags[2].Add("imageForm_label");
+        openTags[2].Add("imageForm_input");
+        openTags[2].Add("imageForm_button");
+
+        openTags.Add(3, new List<string>());
+        openTags[3].Add("text2_p");
+        openTags[3].Add("text2_ul");
+        openTags[3].Add("text2_li");
+        
     }
 
     void InitStageInfo()

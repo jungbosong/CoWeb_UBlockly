@@ -15,7 +15,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 ****************************************************************************/
-
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -37,8 +37,15 @@ namespace UBlockly.UGUI
 
         protected virtual void BuildMenu()
         {
-            foreach (var category in mConfig.BlockCategoryList)
+            int stageNum = StageManager.Instance.stageNum;
+            int endIdx = mConfig.BlockCategoryList.Count;
+            if(stageNum <= 1)
             {
+                endIdx = 2;
+            }
+            for (int categoryIdx = 0; categoryIdx < endIdx; categoryIdx++)
+            {
+                var category = mConfig.BlockCategoryList[categoryIdx];
                 GameObject menuItem = GameObject.Instantiate(m_MenuItemPrefab, m_MenuListContent, false);
                 menuItem.name = category.CategoryName;
                 menuItem.GetComponentInChildren<Text>().text = I18n.Get(category.CategoryName);
@@ -126,9 +133,23 @@ namespace UBlockly.UGUI
         {
             Transform contentTrans = mRootList[mActiveCategory].transform;
             var blockTypes = mConfig.GetBlockCategory(mActiveCategory).BlockList;
+
+            int stageNum = StageManager.Instance.stageNum;
+            List<string> openTags = new List<string>();
+            for(int i = 0; i <= stageNum; i++)
+            {
+                foreach(string tagName in StageManager.Instance.openTags[i])
+                {
+                    openTags.Add(tagName);
+                }
+            }
+
             foreach (string blockType in blockTypes)
             {
-                NewBlockView(blockType, contentTrans);
+                if(openTags.Exists(s => s.Contains(blockType)))
+                {
+                    NewBlockView(blockType, contentTrans);    
+                }
             }
         }
         
