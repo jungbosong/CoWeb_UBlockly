@@ -11,6 +11,8 @@ public class StageManager : MonoBehaviour
     public int stageNum{get; set;}  // 현재 진행 중인 스테이지 번호
     int maxStageNum = 4;   // 마지막 스테이지 번호
     public Dictionary<int, List<string>> openTags{get; private set;}
+    public bool isFirst{get; set;}
+
     void Awake() 
     {
         if(Instance == null)    
@@ -22,6 +24,7 @@ public class StageManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        isFirst = true;
         InitStageInfo();
         InitOpenTags();
         ShowStageInfo();

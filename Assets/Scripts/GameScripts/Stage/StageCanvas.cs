@@ -89,18 +89,23 @@ public class StageCanvas : MonoBehaviour
         }
         else
         {
-            if(!stages[btnNum].GetIsLocked()) 
+            if(stages[btnNum].GetIsLocked()) 
+            {
+                Debug.Log("It's Locked Stage");
+                StartCoroutine(ShowPopup(notOpenedPopup));
+            }
+            else if(StageManager.Instance.isFirst)
+            {
+                StageManager.Instance.stageNum = btnNum;
+                SceneManager.LoadScene("TutorialScene");
+            }
+            else
             {
                 StageManager.Instance.stageNum = btnNum;
                 Debug.Log("Start Stage_" + btnNum);
                 monitorCanvas.GetComponent<MonitorCanvas>().SetMonitor();
                 monitorCanvas.SetActive(true);
                 Debug.Log("monitorCanvas.SetActive(true)");
-            }
-            else
-            {
-                Debug.Log("It's Locked Stage");
-                StartCoroutine(ShowPopup(notOpenedPopup));
             }
         }
     }
