@@ -1,4 +1,4 @@
 - 코웹의 작동 방식을 이해 해봅시다.
 
-학습 할 태그
-- html, column, text
+학습 할 태그 블록
+- html(시작), column(줄), text(텍스트)
